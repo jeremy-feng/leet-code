@@ -23,7 +23,7 @@ class Solution:
             right = travel(node.right)
             # 计算：如果偷本结点，不偷子结点，则在本结点能拿到的金额为：本结点的金额 + 在左结点但不偷左结点的金额 + 在右结点但不偷右结点的金额
             steel_current = node.val + left[1] + right[1]
-            # 如果不偷本结点，直接到子结点
+            # 如果不偷本结点，直接到子结点，则在本结点能拿到的金额为：在左结点，且可以选择偷或不偷左结点的金额的最大值 + 在右结点，且可以选择偷或不偷右结点的金额的最大值
             steel_child = max(left[0], left[1]) + max(right[0], right[1])
             return steel_current, steel_child
 
